@@ -1,9 +1,5 @@
-
-# TOKEN = "6782805349:AAFVDk09liV2zT0I0OEGV7WR49-BrKD9hrI"
-# STICKER_ID = "CAACAgIAAxkBAAECLUJlZYeMgutJzwABDE7tl8_bAVH3w-QAAjwzAAIeN2FIOtfo50BPxfIzBA"
-# "-4070673928"
-
 import asyncio
+from background import keep_alive
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
@@ -11,7 +7,6 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 # Токен вашего бота
 TOKEN = "6782805349:AAFVDk09liV2zT0I0OEGV7WR49-BrKD9hrI"
 
-# Создаем объекты бота и диспетчера
 bot = Bot(token=TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
@@ -39,6 +34,8 @@ sticker_mapping = {
     "тряску": tryaska,
     "трясусь": tryaska,
     "трястись": tryaska,
+    "трясись": tryaska,
+    "трясет": tryaska,
     "куколд": cuckold,
     "осуждаем": cuckold,
 }
@@ -59,6 +56,7 @@ async def main():
     await dp.start_polling()
 
 # Запускаем бота
+keep_alive()
 if __name__ == '__main__':
     asyncio.run(main())
 
